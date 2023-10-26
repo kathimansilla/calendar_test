@@ -17,6 +17,7 @@ function App() {
       setAvailableDays(data);
     });
   }, []);
+  console.log(availableDays);
 
   console.log(availableDays);
   const availableDaysList = availableDays.map(day => ({
