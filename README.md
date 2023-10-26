@@ -1,10 +1,12 @@
 # Calendar test
 
-Este proyecto está constituido por un pequeño backend y frontend. El servidor se encarga de llamar a la API 'https://tadpole.clickferry.app/departures?route=ALGECEUT' solo cuando se despliega la aplicación, para esto guarda los datos en una variable global. Se extraen solo los datos de los próximos 2 meses a partir del día actual. 
+Este proyecto muestra un calendario con los días en los que los usuarios pueden reservar sus viajes en ferry. 
+
+El servidor se encarga de llamar a la API 'https://tadpole.clickferry.app/departures?route=ALGECEUT' por única vez cuando se despliega la aplicación. Para esto se guardan los datos en una variable global. Se extraen solo los datos de los próximos 2 meses a partir del día actual. 
 
 Desde el frontend se despliega un calendario que muestra aquellos días en los que el usuario puede reservar un viaje, diferenciando así los días que no están disponibles. Se presenta una maquetación inicial, con header, main y footer cuyos estilos están escritos con SASS (SCSS).
 
-Debido al tamaño del proyecto no se han utilizado componentes, pero se ha preparado la estrucutura proyectando el desarrollo de la página. 
+Debido al tamaño del proyecto no se han utilizado componentes, pero se ha preparado la estrucutura proyectando el futuro desarrollo de la página. 
 
 ## Stack tech 
 
@@ -18,6 +20,7 @@ Debido al tamaño del proyecto no se han utilizado componentes, pero se ha prepa
 
 ## Requisitos Previos para ejecutar el proyecto de manera local
 
+Instalar en el ordenador:
 - Node.js y npm.
 - Git.
 
@@ -28,7 +31,7 @@ Debido al tamaño del proyecto no se han utilizado componentes, pero se ha prepa
 ### Configurar el backend
 
 - npm i (en carpeta raíz: backend)
-- npm run dev (El servidor estará en funcionamiento en http://localhost:5173)
+- npm run dev (Inicia el servidor. Este estará en funcionamiento en http://localhost:5173)
 
 ### Configurar el frontend
 
