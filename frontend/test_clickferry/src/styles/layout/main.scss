@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 83vh;
+    &__titleCalendar {
+        font-size: 1rem;
+        padding: 10px;
+        color: #032A52;
+    }
+    &__calendar {
+        width: 50vw;
+    }
+}
