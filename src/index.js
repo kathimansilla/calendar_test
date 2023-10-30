@@ -18,29 +18,9 @@ let cachedData = null;
 const getAvailablesDays = async () => {
   let availableDaysObj = [];
 
-  for (let day = 25; day <= 31; day++) {
-    const url = `https://tadpole.clickferry.app/departures?route=ALGECEUT&time=2023-10-${day.toString().padStart(2, "0")}`;
-    const response = await axios.get(url);
-    if (response.data.length > 0 && response.status === 200) {
-      availableDaysObj.push(response.data[0]);
-
-    }
-  }
-  for (let day = 1; day <= 30; day++) {
-    const url = `https://tadpole.clickferry.app/departures?route=ALGECEUT&time=2023-11-${day.toString().padStart(2, "0")}`;
-    const response = await axios.get(url);
-    if (response.data.length > 0 && response.status === 200) {
-      availableDaysObj.push(response.data[0]);
-    }
-  }
-  for (let day = 1; day < 26; day++) {
-    const url = `https://tadpole.clickferry.app/departures?route=ALGECEUT&time=2023-12-${day.toString().padStart(2, "0")}`;
-    const response = await axios.get(url);
-    if (response.data.length > 0 && response.status === 200) {
-      availableDaysObj.push(response.data[0]);
-      console.log(response.data[0]);
-    }
-  }
+  loadMonth(10, 25, 31, availableDaysObj);
+  loadMonth(11, 1, 30, availableDaysObj);
+  loadMonth(12, 1, 27, availableDaysObj);
 
   return availableDaysObj;
 };
@@ -62,3 +42,13 @@ server.get('/available-days', async (req, res) => {
     res.status(500).send('Error al llamar a la API');
   }
 });
+
+async function loadMonth(month, dayStart, dayEnd, targetArray) {
+    for (let day = dayStart; day <= dayEnd; day++) {
+    const url = `https://tadpole.clickferry.app/departures?route=ALGECEUT&time=2023-${month}-${day.toString().padStart(2, "0")}`;
+    const response = await axios.get(url);
+    if (response.data.length > 0 && response.status === 200) {
+      targetArray.push(response.data[0]);
+    }
+  }
+}
