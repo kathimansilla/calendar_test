@@ -58,7 +58,6 @@ server.get('/available-days', async (req, res) => {
       console.log('caché');
     } else {
       //Suponiendo que el usuario hace una búsqueda para la ruta ALGECEUT
-
       const datesObj = await getAvailablesDays();   
       cachedData = datesObj;
       res.json(datesObj);
